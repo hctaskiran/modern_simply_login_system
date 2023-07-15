@@ -10,3 +10,6 @@ A simple but modern login system practice on Flutter, texts in Russian Language.
   - Register
   - Page to choose after logged-in
   - Localization or Different Languages
+  - Splash Screen at the beginning of the application
+  - Loading Bar(?)
+  - Google & Apple Login
