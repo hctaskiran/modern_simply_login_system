@@ -9,3 +9,4 @@ A simple but modern login system practice on Flutter, texts in Russian Language.
   - Recover Password
   - Register
   - Page to choose after logged-in
+  - Localization or Different Languages
