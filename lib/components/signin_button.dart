@@ -18,7 +18,7 @@ class signInButton extends StatelessWidget {
         child: _signInText(),
       ),
     );
-  }
+  } 
 }
 
 class _signInText extends StatelessWidget {
