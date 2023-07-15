@@ -1,10 +1,10 @@
 A simple but modern login system practice on Flutter, texts in Russian Language.
 
 # TO-DO #
-  + UI for first screen i'll see
+  + UI for the first screen being shown
   + Login
   - Animations
-  - Firebase Auth
+  - FirebaseAuth
   - Log-out
   - Recover Password
   - Register
