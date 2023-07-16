@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:modern_simply_login_system/components/g_a_buttons.dart';
 import 'package:modern_simply_login_system/components/g_a_login_ui.dart';
+import 'package:modern_simply_login_system/components/register.dart';
 import 'package:modern_simply_login_system/components/signin_button.dart';
 import 'package:modern_simply_login_system/components/forgot_password.dart';
 import 'package:modern_simply_login_system/components/icons.dart';
@@ -54,13 +55,17 @@ class _LoginPageState extends State<LoginPage> {
                 signUserIn();
               }),                 // Click to Sign In 
               
-              elliSizedBox(),
+              elliSizedBox(), // 50
 
-              gaLoginUI(),
+              gaLoginUI(), // Additional login change via google or apple account
               
+              elliSizedBox(), // 50
+
+              googleAppleButton(), // Buttons in order to log-in via google or apple account
+
               elliSizedBox(),
 
-              googleAppleButton()
+              registerNow()
             ],
           ),
         ),

@@ -27,11 +27,20 @@ class onSizedBox extends StatelessWidget {
   }
 }
 
-class onWidhtSizedBox extends StatelessWidget {
-  const onWidhtSizedBox({super.key});
+class ybWidhtSizedBox extends StatelessWidget {
+  const ybWidhtSizedBox({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(width: 10);
+    return SizedBox(width: 25);
+  }
+}
+
+class dortWidhtSizedBox extends StatelessWidget {
+  const dortWidhtSizedBox({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(width: 4);
   }
 }

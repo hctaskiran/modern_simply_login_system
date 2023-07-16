@@ -18,7 +18,7 @@ class _googleAppleButtonState extends State<googleAppleButton> {
       mainAxisAlignment: centerAlign,
       children: [
         customGoogleButton(),
-        onWidhtSizedBox(),
+        ybWidhtSizedBox(),
         customAppleButton()
       ],
     );
@@ -37,8 +37,10 @@ class customGoogleButton extends StatelessWidget {
       padding: EdgeInsets.all(25),
       decoration: BoxDecoration(
         border: Border.all(
-          color: Colors.white
-        )),
+          color: Colors.white),
+          borderRadius: BorderRadius.circular(16),
+          color: Colors.grey.shade200
+          ),
       );
   }
 }
@@ -55,8 +57,11 @@ class customAppleButton extends StatelessWidget {
       padding: EdgeInsets.all(25),
       decoration: BoxDecoration(
         border: Border.all(
-          color: Colors.white
-          )),);
+          color: Colors.white),
+          borderRadius: BorderRadius.circular(16),
+          color: Colors.grey.shade200
+          ),
+      );
   }
 }
 
