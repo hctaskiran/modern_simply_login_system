@@ -1,25 +1,35 @@
 import 'package:flutter/material.dart';
 
 class signInButton extends StatelessWidget {
-  signInButton({super.key});
+  signInButton({super.key, required this.onTap,});
 
+  final Function()? onTap;
   final signInColor = Colors.black;
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      padding: EdgeInsets.all(25),
-      margin: EdgeInsets.symmetric(horizontal: 25),
-      decoration: BoxDecoration(
-        color: signInColor,
-        borderRadius: BorderRadius.circular(8)
+    return GestureDetector(
+      onTap:() {
+        
+      },
+      child: Container(
+        padding: EdgeInsets.all(25),
+        margin: EdgeInsets.symmetric(horizontal: 25),
+        decoration: BoxDecoration(
+          color: signInColor,
+          borderRadius: BorderRadius.circular(8)
+          ),
+        child: Center(
+          child: _signInText(),
         ),
-      child: Center(
-        child: _signInText(),
       ),
     );
   } 
 }
+
+
+//
+
 
 class _signInText extends StatelessWidget {
   const _signInText({

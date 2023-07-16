@@ -22,6 +22,7 @@ class _forgotPasswordText extends StatelessWidget {
     super.key,
   });
 
+  // final forgotColor = Colors.red.shade900;
   final forgotColor = Colors.blue.shade700;
   final forgotTextStyle = TextDecoration.underline;
   final String forgotText = 'Забыли пароль?';

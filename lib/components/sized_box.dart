@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class menuSizedBox extends StatelessWidget {
-  const menuSizedBox({super.key});
+class elliSizedBox extends StatelessWidget {
+  const elliSizedBox({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -9,8 +9,8 @@ class menuSizedBox extends StatelessWidget {
   }
 }
 
-class textSizedBox extends StatelessWidget {
-  const textSizedBox({super.key});
+class ybSizedBox extends StatelessWidget {
+  const ybSizedBox({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -18,8 +18,8 @@ class textSizedBox extends StatelessWidget {
   }
 }
 
-class fieldSizedBox extends StatelessWidget {
-  const fieldSizedBox({super.key});
+class onSizedBox extends StatelessWidget {
+  const onSizedBox({super.key});
 
   @override
   Widget build(BuildContext context) {

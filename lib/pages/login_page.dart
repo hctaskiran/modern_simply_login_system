@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:modern_simply_login_system/components/g_a_login_ui.dart';
 import 'package:modern_simply_login_system/components/signin_button.dart';
 import 'package:modern_simply_login_system/components/forgot_password.dart';
 import 'package:modern_simply_login_system/components/icons.dart';
@@ -14,6 +15,9 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
+
+  void signUserIn() {}
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -23,30 +27,35 @@ class _LoginPageState extends State<LoginPage> {
           child: Column(
             children: [
               
-              menuSizedBox(),
+              elliSizedBox(), // 50
 
               mainMenuLockIcon(), // The Icon on the Top of The Main Page
               
-              textSizedBox(), // 25
+              ybSizedBox(), // 25
 
               welcomeText(), // Text Under The Icon
 
-              textSizedBox(), // 25
+              ybSizedBox(), // 25
 
               customMailInput(), // Input for Entering E-Mail
 
-              fieldSizedBox(), // 10
+              onSizedBox(), // 10
 
               customPasswordField(), // Input for Entering Password
 
-              fieldSizedBox(), // 10
+              onSizedBox(), // 10
 
               forgotPassword(), // Click to Recover Forgotten Password
 
-              textSizedBox(), // 25
+              ybSizedBox(), // 25
 
-              signInButton(), // Click to Sign In 
+              signInButton(onTap: () {
+                signUserIn();
+              }),                 // Click to Sign In 
+              
+              elliSizedBox(),
 
+              gaLoginUI()
             ],
           ),
         ),
