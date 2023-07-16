@@ -26,3 +26,12 @@ class onSizedBox extends StatelessWidget {
     return SizedBox(height: 10);
   }
 }
+
+class onWidhtSizedBox extends StatelessWidget {
+  const onWidhtSizedBox({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(width: 10);
+  }
+}

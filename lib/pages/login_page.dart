@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:modern_simply_login_system/components/g_a_buttons.dart';
 import 'package:modern_simply_login_system/components/g_a_login_ui.dart';
 import 'package:modern_simply_login_system/components/signin_button.dart';
 import 'package:modern_simply_login_system/components/forgot_password.dart';
@@ -55,7 +56,11 @@ class _LoginPageState extends State<LoginPage> {
               
               elliSizedBox(),
 
-              gaLoginUI()
+              gaLoginUI(),
+              
+              elliSizedBox(),
+
+              googleAppleButton()
             ],
           ),
         ),
