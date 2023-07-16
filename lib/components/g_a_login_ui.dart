@@ -9,7 +9,7 @@ class gaLoginUI extends StatefulWidget {
 
 class _gaLoginUIState extends State<gaLoginUI> {
 
-  final orText = Text('Или войти через');
+  final orLoginWithText = Text('Или войти через');
 
   @override
   Widget build(BuildContext context) {
@@ -17,14 +17,10 @@ class _gaLoginUIState extends State<gaLoginUI> {
       padding: const EdgeInsets.symmetric(horizontal: 25),
       child: Row(
         children: [
-          Expanded(
-            child: gaLoginDivider(),
-          ),
-          orText,
-          Expanded(
-            child: gaLoginDivider(),
-          ),
-        ],
+          Expanded(child: gaLoginDivider()),
+          orLoginWithText,
+          Expanded(child: gaLoginDivider())
+          ],
       ),
     );
   }
