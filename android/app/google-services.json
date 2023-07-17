@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "696758427475",
+    "project_id": "loginsystemauth-ca776",
+    "storage_bucket": "loginsystemauth-ca776.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:696758427475:android:e3bd749ddf772008310ba6",
+        "android_client_info": {
+          "package_name": "com.example.modern_simply_login_system"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "696758427475-a2hg9t5oeumg7rbnets4qv7g4fu6obr8.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCXB6hxAeTjNWLJF03SamcREZeYRQJw62U"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "696758427475-a2hg9t5oeumg7rbnets4qv7g4fu6obr8.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

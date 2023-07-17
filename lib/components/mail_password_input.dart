@@ -90,6 +90,7 @@ class _passwordTextField extends StatelessWidget {
         labelStyle: passwordLabelColor
       ),
       obscureText: true,
+      obscuringCharacter: '*',
       controller: passwordController,
      );
   }
