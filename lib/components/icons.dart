@@ -5,6 +5,8 @@ class welcomeLogo extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Icon(Icons.tag_faces_rounded, size: 100);
+    return Icon(
+      Icons.tips_and_updates_outlined, 
+      size: 100);
   }
 }

@@ -27,12 +27,51 @@ class _LoginPageState extends State<LoginPage> {
     }
   );
 
-    await FirebaseAuth.instance.signInWithEmailAndPassword(
+    try {
+      await FirebaseAuth.instance.signInWithEmailAndPassword(
       email: mailController.text, 
       password: passwordController.text);
 
       // pop loading
       Navigator.pop(context);
+    } on FirebaseAuthException catch (e) {
+      // pop loading
+      Navigator.pop(context);
+      
+      // wrong mail
+      if (e.code == 'user-not-found') {     
+        wrongEmailMessage();
+      } 
+      
+      // wrong passwd
+      else if (e.code =='wrong-password') {
+        wrongPasswordMessage();
+      }
+    }
+  }
+
+  // wrong mail
+  void wrongEmailMessage() {
+    showDialog(
+      context: context, 
+      builder: (context) {
+        return const AlertDialog(
+          title: Text('Неверная Э-Почта'),
+        );
+      }
+    );
+  }
+
+  // wrong pass
+  void wrongPasswordMessage() {
+    showDialog(
+      context: context, 
+      builder: (context) {
+        return const AlertDialog(
+          title: Text('Неверный Пароль'),
+        );
+      }
+    );
   }
 
   @override

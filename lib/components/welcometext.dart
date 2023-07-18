@@ -14,5 +14,14 @@ class _welcomeTextState extends State<welcomeText> {
     return Text('Добро пожаловать, рад вас снова видеть!',
     style: TextStyle(color: Colors.black, fontSize: 16),
     );
+    // return AnimatedTextKit(
+    //   pause: const Duration(seconds: 10),
+    //   repeatForever: true,
+    //   animatedTexts: [TyperAnimatedText(
+    //     'Добро пожаловать, рад вас снова видеть!',
+    //     textStyle: TextStyle(
+    //       fontSize: 16
+    //     )
+    // )]);
   }
 }
