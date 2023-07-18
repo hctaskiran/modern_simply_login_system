@@ -1,75 +1,141 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:modern_simply_login_system/components/g_a_buttons.dart';
-import 'package:modern_simply_login_system/components/g_a_login_ui.dart';
-import 'package:modern_simply_login_system/components/register.dart';
-import 'package:modern_simply_login_system/components/signin_button.dart';
-import 'package:modern_simply_login_system/components/forgot_password.dart';
 import 'package:modern_simply_login_system/components/icons.dart';
-import 'package:modern_simply_login_system/components/mail_password_input.dart';
-import 'package:modern_simply_login_system/components/sized_box.dart';
-import 'package:modern_simply_login_system/components/welcome_text.dart';
+import 'package:modern_simply_login_system/components/signinbutton.dart';
+import 'package:modern_simply_login_system/components/square.dart';
+import 'package:modern_simply_login_system/components/textfields.dart';
+import 'package:modern_simply_login_system/components/welcometext.dart';
 
-class LoginPage extends StatefulWidget {
-  const LoginPage({super.key,});
+class LoginPage extends StatelessWidget {
+  LoginPage({super.key});
 
-  @override
-  State<LoginPage> createState() => _LoginPageState();
-}
+  final mailController = TextEditingController();
+  final passwordController = TextEditingController();
 
-class _LoginPageState extends State<LoginPage> {
-
-  void signUserIn() {}
+  void signUserIn() async {
+    await FirebaseAuth.instance.signInWithEmailAndPassword(
+      email: mailController.text, 
+      password: passwordController.text);
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.grey[300],
+      backgroundColor: Colors.grey.shade300,
       body: SafeArea(
         child: Center(
           child: Column(
             children: [
+
+              const SizedBox(height: 50),
+
+              const welcomeLogo(),
+
+              const SizedBox(height: 50),
+
+              welcomeText(),
+
+              const SizedBox(height: 25),
+
+              MenuTextField(
+                controller: mailController, 
+                labelText: 'Э-Почта', 
+                hintText: 'Введите электронную почту', 
+                obscureText: false,
+                prefixIcon: Icon(Icons.mail, color: Colors.grey.shade800),
+                ),
+
+              const SizedBox(height: 10),
+
+              MenuTextField(
+                controller: passwordController, 
+                labelText: 'Пароль', 
+                hintText: 'Введите пароль', 
+                obscureText: true,
+                prefixIcon: Icon(Icons.lock, color: Colors.grey.shade800),
+              ),
+
+              const SizedBox(height: 10),
+
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 25),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: [                  
+                    Text(
+                      'Забыли пароль?',
+                      style: TextStyle(color: Colors.blue.shade700, decoration: TextDecoration.underline),
+                    ),
+                  ],
+                ),
+              ),
               
-              elliSizedBox(), // 50
+              const SizedBox(height: 25),
 
-              mainMenuLockIcon(), // The Icon on the Top of The Main Page
+              SignInButton(onTap: signUserIn),
+
+              const SizedBox(height: 50),
+
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 25),
+                child: Row(
+                  children: [
+                    Expanded(
+                      child: Divider(
+                        thickness: 2,
+                        color: Colors.grey.shade400,
+                      ),
+                    ),
               
-              ybSizedBox(), // 25
-
-              welcomeText(), // Text Under The Icon
-
-              ybSizedBox(), // 25
-
-              customMailInput(), // Input for Entering E-Mail
-
-              onSizedBox(), // 10
-
-              customPasswordField(), // Input for Entering Password
-
-              onSizedBox(), // 10
-
-              forgotPassword(), // Click to Recover Forgotten Password
-
-              ybSizedBox(), // 25
-
-              signInButton(onTap: () {
-                signUserIn();
-              }),                 // Click to Sign In 
+                    Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 10),
+                      child: Text('Или войти через'),
+                    ),
               
-              elliSizedBox(), // 50
+                    Expanded(
+                      child: Divider(
+                        thickness: 2,
+                        color: Colors.grey.shade400,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
 
-              gaLoginUI(), // Additional login change via google or apple account
-              
-              elliSizedBox(), // 50
+              const SizedBox(height: 50),
 
-              googleAppleButton(), // Buttons in order to log-in via google or apple account
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  SquareTile(imagePath: 'lib/assets/google_logo.png'),
 
-              elliSizedBox(),
+                  const SizedBox(width: 25),
+                  
+                  SquareTile(imagePath: 'lib/assets/apl.png')
 
-              registerNow()
+                ],
+              ),
+
+              const SizedBox(height: 50),
+
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text('У вас аккаунта нет?'),
+                  const SizedBox(width: 4),
+                  Text('Зарегистрируйтесь!', 
+                  style: TextStyle(
+                    color: Colors.blue.shade700, 
+                    fontWeight: FontWeight.bold,
+                    decoration: TextDecoration.underline
+                  )),
+                ],
+              )
+
             ],
           ),
         ),
-      ),
+      )
     );
   }
 }

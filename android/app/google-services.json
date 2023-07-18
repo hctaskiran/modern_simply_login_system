@@ -29,6 +29,13 @@
             {
               "client_id": "696758427475-a2hg9t5oeumg7rbnets4qv7g4fu6obr8.apps.googleusercontent.com",
               "client_type": 3
+            },
+            {
+              "client_id": "696758427475-d8o7dbaa67q85825m31n7840l9gcrkog.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.modernSimplyLoginSystem.RunnerTests"
+              }
             }
           ]
         }
