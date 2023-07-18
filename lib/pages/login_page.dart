@@ -6,16 +6,33 @@ import 'package:modern_simply_login_system/components/square.dart';
 import 'package:modern_simply_login_system/components/textfields.dart';
 import 'package:modern_simply_login_system/components/welcometext.dart';
 
-class LoginPage extends StatelessWidget {
+class LoginPage extends StatefulWidget {
   LoginPage({super.key});
 
+  @override
+  State<LoginPage> createState() => _LoginPageState();
+}
+
+class _LoginPageState extends State<LoginPage> {
   final mailController = TextEditingController();
+
   final passwordController = TextEditingController();
 
   void signUserIn() async {
+
+    showDialog(context: context, builder:(context) { // loading
+      return const Center(
+        child: CircularProgressIndicator(),
+      );
+    }
+  );
+
     await FirebaseAuth.instance.signInWithEmailAndPassword(
       email: mailController.text, 
       password: passwordController.text);
+
+      // pop loading
+      Navigator.pop(context);
   }
 
   @override
@@ -112,7 +129,6 @@ class LoginPage extends StatelessWidget {
                   const SizedBox(width: 25),
                   
                   SquareTile(imagePath: 'lib/assets/apl.png')
-
                 ],
               ),
 
