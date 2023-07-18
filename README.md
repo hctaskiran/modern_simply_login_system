@@ -2,14 +2,14 @@ A simple but modern login system practice on Flutter, texts in Russian Language.
 
 # TO-DO #
   + UI for the first screen being shown
-  + Login
+  + Login System
   - Animations
-  - FirebaseAuth
-  - Log-out
+  + FirebaseAuth
+  + Log-out
   - Recover Password
   - Register
   - Page to choose after logged-in
   - Localization or Different Languages
   - Splash Screen at the beginning of the application
-  - Loading Bar(?)
+  + Loading Bar
   - Google & Apple Login
