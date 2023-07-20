@@ -6,22 +6,24 @@ import 'package:modern_simply_login_system/components/square.dart';
 import 'package:modern_simply_login_system/components/textfields.dart';
 import 'package:modern_simply_login_system/components/welcometext.dart';
 
-class LoginPage extends StatefulWidget {
+class RegisterPage extends StatefulWidget {
 
   final Function()? onTap;
   
-  LoginPage({super.key, required this.onTap});
+  RegisterPage({super.key, required this.onTap});
 
   @override
-  State<LoginPage> createState() => _LoginPageState();
+  State<RegisterPage> createState() => _RegisterPageState();
 }
 
-class _LoginPageState extends State<LoginPage> {
+class _RegisterPageState extends State<RegisterPage> {
+  
   final mailController = TextEditingController();
-
   final passwordController = TextEditingController();
+  final confirmPasswordController = TextEditingController();
 
-  void signUserIn() async {
+
+  void signUserUp() async {
 
     showDialog(context: context, builder:(context) { // loading
       return const Center(
@@ -30,11 +32,15 @@ class _LoginPageState extends State<LoginPage> {
     }
   );
 
-    try {
-      await FirebaseAuth.instance.signInWithEmailAndPassword(
-      email: mailController.text, 
-      password: passwordController.text);
 
+    try { 
+      if (passwordController.text == confirmPasswordController.text) {
+        await FirebaseAuth.instance.createUserWithEmailAndPassword(
+          email: mailController.text, 
+          password: passwordController.text);
+      } else {
+        showErrorMessage('text');
+      } 
       // pop loading
       Navigator.pop(context);
     } on FirebaseAuthException catch (e) {
@@ -73,22 +79,21 @@ class _LoginPageState extends State<LoginPage> {
             child: Column(
               children: [
         
-                const SizedBox(height: 50),
+                const SizedBox(height: 25),
         
-                const welcomeLogo(size: 100),
+                const registerIcon(size: 80),
         
-                const SizedBox(height: 50),
+                const SizedBox(height: 25),
         
-                Text('Добро пожаловать, рад вас снова видеть!',
-                style: TextStyle(color: Colors.black, fontSize: 16),
+                Text('Присоединяйтесь к нам 1 щёлчком!',
+                  style: TextStyle(color: Colors.black, fontSize: 16),
                 ),
-
                 const SizedBox(height: 25),
         
                 MenuTextField(
                   controller: mailController, 
-                  labelText: 'Э-Почта', 
-                  hintText: 'Введите электронную почту', 
+                  labelText: 'Создайте Э-Почта', 
+                  hintText: 'Э-Почта', 
                   obscureText: false,
                   prefixIcon: Icon(Icons.mail, color: Colors.grey.shade800),
                   ),
@@ -97,30 +102,25 @@ class _LoginPageState extends State<LoginPage> {
         
                 MenuTextField(
                   controller: passwordController, 
-                  labelText: 'Пароль', 
-                  hintText: 'Введите пароль', 
+                  labelText: 'Создайте пароль', 
+                  hintText: 'Пароль', 
                   obscureText: true,
-                  prefixIcon: Icon(Icons.lock, color: Colors.grey.shade800),
+                  prefixIcon: Icon(Icons.key, color: Colors.grey.shade800),
                 ),
         
                 const SizedBox(height: 10),
-        
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 25),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.end,
-                    children: [                  
-                      Text(
-                        'Забыли пароль?',
-                        style: TextStyle(color: Colors.blue.shade700, decoration: TextDecoration.underline),
-                      ),
-                    ],
-                  ),
+                
+                MenuTextField(
+                  controller: confirmPasswordController, 
+                  labelText: 'Проверьте пароль', 
+                  hintText: 'Пароль', 
+                  obscureText: true,
+                  prefixIcon: Icon(Icons.key, color: Colors.grey.shade800),
                 ),
                 
                 const SizedBox(height: 25),
         
-                SignInUpButton(onTap: signUserIn, text: 'Вход',),
+                SignInUpButton(onTap: signUserUp, text: 'Создать',),
         
                 const SizedBox(height: 50),
         
@@ -168,11 +168,11 @@ class _LoginPageState extends State<LoginPage> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Text('У вас аккаунта нет?'),
+                    Text('Уже создали аккаунт?'),
                     const SizedBox(width: 4),
                     GestureDetector(
                       onTap: widget.onTap,
-                      child: Text('Зарегистрируйтесь!', 
+                      child: Text('Нажмите для входа!', 
                       style: TextStyle(
                         color: Colors.blue.shade700, 
                         fontWeight: FontWeight.bold,

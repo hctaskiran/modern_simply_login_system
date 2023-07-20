@@ -2,7 +2,7 @@ import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
 
 class welcomeText extends StatefulWidget {
-  const welcomeText({super.key});
+   welcomeText({super.key});
 
   @override
   State<welcomeText> createState() => _welcomeTextState();
@@ -10,18 +10,15 @@ class welcomeText extends StatefulWidget {
 
 class _welcomeTextState extends State<welcomeText> {
   @override
-  Widget build(BuildContext context) {
-    return Text('Добро пожаловать, рад вас снова видеть!',
-    style: TextStyle(color: Colors.black, fontSize: 16),
-    );
-    // return AnimatedTextKit(
-    //   pause: const Duration(seconds: 10),
-    //   repeatForever: true,
-    //   animatedTexts: [TyperAnimatedText(
-    //     'Добро пожаловать, рад вас снова видеть!',
-    //     textStyle: TextStyle(
-    //       fontSize: 16
-    //     )
-    // )]);
+  Widget build(BuildContext context) { 
+    return AnimatedTextKit(
+      pause: const Duration(seconds: 10),
+      repeatForever: true,
+      animatedTexts: [TyperAnimatedText(
+        'Добро пожаловать, рад вас снова видеть!',
+        textStyle: TextStyle(
+          fontSize: 16
+        )
+    )]);
   }
 }
